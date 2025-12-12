@@ -1,0 +1,2125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BARS.kz | Общий Ассортимент</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* ========================================================================= */
+        /* =================== 1. НЕГІЗГІ СТИЛЬДЕР (Бар өзгеріссіз) =================== */
+        /* ========================================================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Arial', sans-serif;
+            background-color: #000;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ТІЛ АУЫСТЫРУ БАТЫРМАСЫ */
+        .language-switcher button {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 14px;
+            padding: 5px 8px;
+            cursor: pointer;
+            transition: color 0.3s;
+            margin: 0 2px;
+            border-radius: 3px;
+        }
+
+        .language-switcher button:hover {
+            color: #ccc;
+        }
+
+        .language-switcher button.active {
+            font-weight: bold;
+            color: #ff0000; /* Белсенді тілдің түсін ерекшелеу */
+            background-color: #333;
+        }
+        
+        /* МУЗЫКАЛЫҚ ПЛАСТИНКА СТИЛІ */
+        .music-player-container {
+            width: 80px; 
+            height: 80px;
+            margin-top: 10px; 
+            margin-left: 0; 
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease; 
+        }
+
+        .music-player-container:hover {
+            transform: scale(1.05);
+        }
+        
+        .record-cover {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #fff;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .spinning {
+            animation: spin 3s linear infinite;
+        }
+
+        /* Жоғарғы навигация (Header) */
+        .header {
+            background-color: #000;
+            padding: 15px 0;
+            border-bottom: 1px solid #222;
+            position: sticky; 
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .header-right-controls {
+            display: flex;
+            flex-direction: column; 
+            align-items: flex-end; 
+            margin-left: auto; 
+        }
+
+        .logo { 
+            font-family: Impact, 'Inter', sans-serif; 
+            font-size: 30px; 
+            font-weight: bold; 
+            color: #fff; 
+            text-decoration: none; 
+        }
+
+        .nav-links { 
+            list-style: none; 
+            display: flex; 
+            margin-right: 20px; 
+        }
+
+        .nav-links li { 
+            margin-left: 30px; 
+        }
+
+        .nav-links a { 
+            color: #fff; 
+            text-decoration: none; 
+            font-size: 16px; 
+            transition: color 0.3s; 
+        }
+
+        .nav-links a:hover { 
+            color: #aaa; 
+        }
+        
+        .whatsapp-btn {
+            background-color: #25D366;
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #1FAF59;
+        }
+
+        /* Басты бөлім (Hero) */
+        .hero-section { 
+            flex-grow: 1; 
+            padding: 100px 0; 
+            text-align: center; 
+            position: relative; 
+            z-index: 1; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden; 
+        }
+
+        /* Hero Video контейнері */
+        .hero-video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -2; 
+        }
+
+        .hero-video-container video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            opacity: 0; 
+            transition: opacity 1s ease-in-out;
+        }
+
+        /* Қараңғылау қабаты */
+        .hero-section::after { 
+            content: ''; 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            right: 0; 
+            bottom: 0; 
+            background-color: rgba(0, 0, 0, 0.25); 
+            z-index: -1; 
+        }
+
+        .hero-content {
+            z-index: 2;
+        }
+
+        .hero-text { 
+            font-size: 80px; 
+            font-weight: 900; 
+            margin-bottom: 20px; 
+            text-shadow: 4px 4px 8px #000; 
+            text-transform: uppercase; 
+            letter-spacing: 10px; 
+            font-family: 'Inter', sans-serif; 
+        }
+
+        .preorder-text { 
+            font-size: 32px; 
+            margin-bottom: 50px; 
+            font-style: normal;
+            font-weight: 700; 
+            font-family: 'Inter', sans-serif; 
+        }
+
+        .order-btn { 
+            padding: 15px 50px; 
+            font-size: 18px; 
+            border: none; 
+            background-color: #fff; 
+            color: #000; 
+            cursor: pointer; 
+            font-weight: bold; 
+            text-transform: uppercase; 
+            text-decoration: none; 
+            display: inline-block; 
+            transition: background-color 0.3s, color 0.3s; 
+        }
+
+        .order-btn:hover { 
+            background-color: #333; 
+            color: #fff;
+        }
+
+        /* Ақпарат бөлімі (Accordeon) */
+        .info-section { 
+            padding: 80px 0; 
+            background-color: #000; 
+        }
+
+        .accordeon-item { 
+            max-width: 800px; 
+            margin: 0 auto; 
+            border-top: 1px solid #444; 
+        }
+
+        .accordeon-item:last-child { 
+            border-bottom: 1px solid #444; 
+        }
+
+        .info-title { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 20px; 
+            font-size: 18px; 
+            font-weight: bold; 
+            cursor: pointer; 
+            transition: background-color 0.3s; 
+        }
+
+        .info-title:hover { 
+            background-color: #1a1a1a; 
+        }
+
+        .plus-icon { 
+            font-size: 24px; 
+            line-height: 1; 
+            transition: transform 0.3s; 
+        }
+
+        .accordeon-item.active .plus-icon { 
+            transform: rotate(45deg); 
+            color: #aaa; 
+        }
+
+        .info-content { 
+            padding: 0 20px; 
+            max-height: 0; 
+            overflow: hidden; 
+            transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out; 
+            color: #ccc; 
+        }
+
+        .info-content.open { 
+            max-height: 2000px; 
+            padding-top: 10px;
+            padding-bottom: 20px;
+        }
+
+        .content-pre { 
+            white-space: pre-wrap; 
+            font-size: 15px; 
+        }
+
+        /* Төменгі деректеме (Footer) */
+        .footer { 
+            background-color: #000; 
+            padding: 50px 0; 
+            border-top: 1px solid #222; 
+        }
+
+        .footer-map-container {
+            background-color: #333; 
+            height: 300px; 
+            margin-bottom: 40px; 
+            overflow: hidden; 
+        }
+
+        .footer-map-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .footer-grid { 
+            display: grid; 
+            grid-template-columns: 2fr 1fr 1fr; 
+            gap: 40px; 
+            text-align: left; 
+        }
+
+        .footer-logo { 
+            font-size: 70px; 
+            font-weight: bold; 
+            margin-bottom: 10px; 
+            grid-column: span 1; 
+        }
+
+        .footer-col h4 { 
+            font-size: 18px; 
+            margin-bottom: 15px; 
+            color: #fff; 
+            border-bottom: 2px solid #fff;
+            padding-bottom: 5px;
+        }
+
+        .footer-col a, .footer-col p { 
+            color: #ccc; 
+            text-decoration: none; 
+            display: block; 
+            margin-bottom: 8px; 
+            font-size: 14px; 
+            transition: color 0.3s; 
+        }
+
+        .footer-col a:hover { 
+            color: #fff; 
+        }
+
+        .contact-info p { 
+            margin-bottom: 15px; 
+            line-height: 1.4; 
+        }
+
+        .contact-info strong { 
+            display: block; 
+            font-size: 20px; 
+            margin-bottom: 5px; 
+            color: #fff; 
+        }
+
+        /* ========================================================================= */
+        /* =================== 2. ТОВАРЛАР СТИЛІ (PRODUCT STYLES) =================== */
+        /* ========================================================================= */
+        
+        .products-title-section {
+            text-align: center;
+            padding: 40px 0;
+            background-color: #080808; 
+            border-bottom: 1px solid #222;
+            border-top: 1px solid #222;
+        }
+        .products-title-section .hero-text {
+            font-size: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: #fff;
+        }
+
+        .search-area-products {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 20px;
+            padding: 20px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .search-box {
+            background: #333;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 20px;
+            color: white;
+            width: 300px;
+        }
+
+        .favorites-btn {
+            background: none;
+            border: 1px solid #fff;
+            color: white;
+            cursor: pointer;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+        
+        .favorites-btn:hover {
+            background-color: #333;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+            padding-bottom: 50px;
+        }
+
+        .product-card {
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px #00000020;
+            text-align: center;
+            transition: transform 0.3s ease;
+            color: black; 
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card h3 {
+            color: #550000; 
+            margin-bottom: 0;
+        }
+
+        .product-card .product-price {
+            display: none; 
+        }
+        
+        /* Карточка өлшемі */
+        .product-image {
+            width: 100%;
+            height: 300px; 
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .product-info {
+            padding: 15px 0 0;
+        }
+
+        .product-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .favorite-heart {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23888"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') no-repeat center;
+            background-size: contain;
+        }
+
+        .favorite-heart.active {
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ff0000"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') no-repeat center;
+            background-size: contain;
+        }
+
+        /* Модаль */
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            /* Модальдың өлшемі */
+            width: 95%;
+            max-width: 900px; 
+            max-height: 95vh;
+            overflow-y: auto;
+            color: black;
+            position: relative;
+        }
+
+        /* X батырмасы */
+        .close-modal {
+            position: sticky;
+            top: 0;
+            align-self: flex-end;
+            margin-bottom: 20px;
+            right: -10px;
+            font-size: 30px; 
+            cursor: pointer;
+            color: #333;
+            z-index: 2010;
+            background-color: white;
+            border-radius: 50%; 
+            width: 35px; 
+            height: 35px; 
+            line-height: 30px; 
+            text-align: center;
+            border: 2px solid #550000; 
+        }
+
+        /* Галерея + Видео + Ақпарат қатар */
+        .modal-flex {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        /* Сол жақ: Медиа (Сурет/Видео) */
+        .media-section {
+            width: 55%; 
+            min-width: 300px;
+        }
+
+        /* Оң жақ: Ақпарат */
+        .info-section-modal {
+            width: 40%; 
+            min-width: 250px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main-media-container {
+            position: relative;
+            width: 100%;
+            padding-top: 75%; 
+            margin-bottom: 10px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .main-image, .main-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-gallery {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+            justify-content: center;
+        }
+
+        .gallery-item {
+            cursor: pointer;
+            border-radius: 5px;
+            min-width: 80px;
+            height: 80px;
+            overflow: hidden;
+            border: 2px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .gallery-item.active {
+            border-color: #550000;
+        }
+
+        .gallery-item img, .gallery-item video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .additional-info-modal {
+            margin-top: 20px;
+            flex-grow: 1;
+        }
+
+        .additional-info-modal h3 {
+            color: #550000;
+            margin-bottom: 10px;
+        }
+
+        .additional-info-modal p {
+            margin-bottom: 15px;
+            line-height: 1.5;
+            font-size: 16px;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+        
+        /* ========================================================================= */
+        /* =================== 3. ОЙЫН СТИЛІ (GAME STYLES) =================== */
+        /* ========================================================================= */
+        #gameOverlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000; 
+            z-index: 5000; 
+            display: none; 
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+        }
+
+        #gameArea {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            background-image: radial-gradient(circle, #020205 0%, #000000 100%);
+            overflow: hidden;
+            border: 2px solid #550000;
+        }
+
+        #playerShip {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            bottom: 50px; 
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23fff"><path d="M12 1L3 21h18L12 1zm0 3.32L17.58 17H6.42L12 4.32z"/><path fill="%23550000" d="M12 7.5L9 15h6l-3-7.5z"/></svg>') no-repeat center;
+            background-size: contain;
+            transition: transform 0.1s linear; 
+        }
+
+        .meteor {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23888"><path d="M22.5 10.5L12 0 1.5 10.5 12 21l10.5-10.5zM12 19L3.92 10.5 12 2 20.08 10.5 12 19z"/></svg>') no-repeat center;
+            background-size: contain;
+            border-radius: 50%;
+            box-shadow: 0 0 5px #ff0000;
+        }
+
+        .bullet {
+            position: absolute;
+            width: 5px;
+            height: 15px;
+            background-color: #00ff00; 
+            border-radius: 2px;
+            box-shadow: 0 0 8px #00ff00;
+        }
+
+        #gameScore {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff0000; 
+            z-index: 5010;
+        }
+        
+        #gameOverScreen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            z-index: 5020;
+        }
+
+        #gameOverScreen h2 {
+            font-size: 48px;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        
+        #finalScore, #highScore {
+            font-size: 30px;
+            color: #ff0000;
+            margin: 10px 0;
+        }
+
+        #restartButton {
+            padding: 15px 30px;
+            font-size: 20px;
+            background-color: #550000;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 30px;
+            transition: background-color 0.3s;
+        }
+
+        #restartButton:hover {
+            background-color: #880000;
+        }
+        
+        #gameInstructions {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 14px;
+            color: #aaa;
+            text-align: right;
+        }
+
+        /* ========================================================================= */
+        /* =================== 4. АДАПТАЦИЯ (Адаптация өзгеріссіз) =================== */
+        /* ========================================================================= */
+        @media (max-width: 992px) {
+            .footer-grid { 
+                grid-template-columns: 1fr 1fr; 
+                gap: 30px; 
+            }
+
+            .footer-logo { 
+                grid-column: span 2; 
+                text-align: center; 
+            }
+            
+            .hero-text { font-size: 60px; }
+            .preorder-text { font-size: 28px; }
+        }
+
+        @media (max-width: 768px) {
+            /* Header */
+            .nav-links {
+                display: none;
+            }
+
+            .nav-content {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .logo {
+                font-size: 32px;
+            }
+
+            .header-right-controls {
+                flex-direction: row; 
+                gap: 20px;
+                align-items: center;
+            }
+
+            .music-player-container {
+                width: 60px; 
+                height: 60px;
+                margin-top: 0;
+            }
+            
+            /* Product Search Area */
+            .search-area-products {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            .search-box {
+                width: 90%;
+                margin-right: 0;
+            }
+
+            /* Hero */
+            .hero-text {
+                font-size: 40px;
+                letter-spacing: 5px;
+            }
+
+            .preorder-text {
+                font-size: 20px;
+            }
+
+            .order-btn {
+                padding: 12px 25px;
+                font-size: 16px;
+            }
+
+            /* Products */
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            .product-image {
+                height: 250px; 
+            }
+
+            /* Footer */
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 20px;
+            }
+
+            .footer-logo {
+                font-size: 50px;
+                margin-bottom: 15px;
+                grid-column: span 1;
+            }
+
+            .footer-col {
+                padding: 20px 0;
+                border-top: 1px solid #222;
+            }
+
+            .footer-col:first-child {
+                border-top: none;
+            }
+            
+            /* Modal */
+            .modal-content {
+                padding: 15px;
+                margin-top: 10px;
+            }
+            .modal-flex {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .media-section, .info-section-modal {
+                width: 100%;
+                min-width: 100%;
+            }
+            .main-media-container {
+                padding-top: 100%; 
+            }
+            .gallery-item {
+                min-width: 60px;
+                height: 60px;
+            }
+            .close-modal {
+                position: absolute;
+                top: 5px;
+                right: 5px;
+                margin-bottom: 0;
+            }
+
+            /* LANGUAGE SWITCHER АДАПТАЦИЯ */
+            .language-switcher {
+                margin-top: 10px;
+            }
+            
+            /* GAME АДАПТАЦИЯ */
+            #playerShip {
+                width: 40px;
+                height: 40px;
+            }
+            .meteor {
+                width: 30px;
+                height: 30px;
+            }
+            #gameInstructions {
+                font-size: 12px;
+                right: 10px;
+                bottom: 10px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="gameOverlay">
+    <div id="gameArea">
+        <div id="playerShip"></div>
+        <div id="gameScore">0</div>
+        
+        <div id="gameInstructions">
+             <p data-lang-key="game_controls">Басқару: WASD немесе Стрелкалар. Ату: SPACE</p>
+        </div>
+
+        <div id="gameOverScreen">
+            <h2 data-lang-key="game_over_title">Ойын Аяқталды!</h2>
+            <p id="finalScore" data-lang-key="game_final_score">Ұпайыңыз: 0</p>
+            <p id="highScore" data-lang-key="game_high_score">Ең Үздік Ұпай: 0</p>
+            <button id="restartButton" data-lang-key="game_restart_button">Қайта Бастау</button>
+            <button id="exitGameButton" data-lang-key="game_exit_button" style="margin-top: 10px;" onclick="location.reload();">Сайтқа Оралу</button>
+        </div>
+    </div>
+</div>
+<header class="header" id="mainHeader">
+    <div class="container nav-content">
+        <a href="#" class="logo">BARS</a>
+        <ul class="nav-links">
+            <li><a href="#products-section" data-lang-key="nav_products">Продукция</a></li>
+            <li><a href="#contacts-footer" data-lang-key="nav_address">Адрес</a></li> 
+            <li><a href="#contacts-footer" data-lang-key="nav_contacts">Контакты</a></li>
+        </ul>
+        
+        <div class="header-right-controls">
+            <div class="language-switcher" id="langSwitcher">
+                <button onclick="changeLanguage('kz')" id="lang-kz">Қазақша</button>
+                <button onclick="changeLanguage('ru')" id="lang-ru">Русский</button>
+                <button onclick="changeLanguage('en')" id="lang-en">English</button>
+            </div>
+            
+            <a href="https://wa.me/77082082913" class="whatsapp-btn" target="_blank">WhatsApp</a>
+            
+            <div class="music-player-container" onclick="toggleMusic()">
+                <img src="42spinna-edo-hunnidz-vip-qazaq.jpeg" alt="Музыкалық обложка" class="record-cover" id="recordCover">
+                <audio id="backgroundMusic" loop>
+                    <source src="42Spinna_Edo_Hunnidz_Vip_Qazaq.mp3" type="audio/mpeg">
+                    Ваш браузер не поддерживает аудио элемент.
+                </audio>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="hero-section" id="mainHero">
+    <div class="hero-video-container" id="heroVideoContainer">
+    </div>
+    
+    <div class="container hero-content">
+        <h1 class="hero-text"> BARS </h1>
+        <p class="preorder-text" data-lang-key="hero_slogan">OZINE SEN OZINDI ALYP SHYGAR</p>
+        <p></p>
+    </div>
+</section>
+
+<section id="products-section">
+    <div class="products-title-section">
+        <div class="container">
+            <div class="hero-text" data-lang-key="products_title">ASSORTIMENT</div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="search-area-products">
+            <input type="text" class="search-box" id="searchInput" data-lang-placeholder="search_placeholder" placeholder="Поиск товара...">
+            <button class="favorites-btn" id="favoritesBtn" data-lang-key="btn_favorites">❤️ Избранное</button>
+            <button class="favorites-btn" id="allBtn" data-lang-key="btn_all_products">📦 Все товары</button>
+        </div>
+
+        <div id="allProducts" class="products-grid"></div>
+        <div id="favoritesProducts" class="products-grid hidden"></div> 
+    </div>
+</section>
+
+<section class="info-section">
+    <div class="container">
+        
+        <div class="accordeon-item" id="item0">
+            <div class="info-title" onclick="toggleContent(0)" data-lang-key="accordion_title_0">
+                Условия возврата и обмена
+                <span class="plus-icon">+</span>
+            </div>
+            <div class="info-content" id="info0">
+                <div class="content-pre" data-lang-key="accordion_content_0">
+                    Мы в BARS стараемся сделать так, чтобы вы остались довольны покупкой.
+
+                    Если что-то пошло не так — вы всегда можете вернуть или обменять товар.
+
+                    <strong>Срок возврата:</strong>
+                    Вы можете вернуть или обменять товар в течение 14 дней с момента получения заказа.
+
+                    <strong>Условия для возврата:</strong>
+                    ✔️ Товар не был в носке и не имеет следов использования
+                    ✔️ Сохранены все бирки, ярлыки и оригинальная упаковка
+                    ✔️ Есть документ, подтверждающий покупку (электронный чек)
+
+                    <strong>Что нельзя вернуть:</strong>
+                    Носки, нижнее бельё, аксессуары (по гигиеническим соображениям)
+                    Товары с признаками ношения, пятнами, запахами или повреждениями
+
+                    <strong>Как вернуть товар:</strong>
+                    - Напишите нам на WhatsApp
+                    - Пришлите "Заявление о возврате/обмене"
+                    - Мы примем заявление и вышлем адрес для отправки
+
+                    После получения товара и проверки на соответствие, мы оформим возврат средств в течение 5 рабочих дней.
+
+                    <strong>Обмен:</strong>
+                    Вы можете обменять товар на другой размер или модель при наличии на складе.
+
+                    <strong>Кто оплачивает доставку:</strong>
+                    Если ошибка с нашей стороны — доставка компенсируется
+                    Если возврат по личной причине — доставка за счёт покупателя
+                </div>
+            </div>
+        </div>
+
+        <div class="accordeon-item" id="item1">
+            <div class="info-title" onclick="toggleContent(1)" data-lang-key="accordion_title_1">
+                Условия доставки
+                <span class="plus-icon">+</span>
+            </div>
+            <div class="info-content" id="info1">
+                <div class="content-pre" data-lang-key="accordion_content_1">
+                    Доставка товаров в BARS осуществляется в порядке очереди.
+
+                    Ожидайте уведомление от отдела логистики в течение 1-3 дней со дня старта отправок.
+                    Как только ваш заказ будет собран, с вами свяжется менеджер.
+
+                    1. <strong>Доставка Яндекс по Алмате:</strong>
+                    Работает ежедневно с 12:00-19:00.
+
+                    2. <strong>Курьерская служба СДЭК Казахстан:</strong>
+                    Экспресс доставка до двери.
+                    Срок: 3-10 дней (в зависимости от региона)
+                    Стоимость: 2000 - 6000 ₸
+
+                    3. <strong>Курьерская служба СДЭК СНГ:</strong>
+                    Экспресс доставка до двери.
+                    Sрок: 3-10 дней
+                    Стоимость: от 3.000 до 17.000 ₸
+
+                    4. <strong>КазПочта:</strong>
+                    Доставка до ближайшего пункта.
+                    Срок: 10-12 дней
+                    Стоимость: 1700 - 3000 ₸
+
+                    5. <strong>Другие страны (вне СНГ):</strong>
+                    Индивидуальные условия доставки. Свяжитесь с менеджером в WhatsApp.
+                </div>
+            </div>
+        </div>
+
+        <div class="accordeon-item" id="item2">
+            <div class="info-title" onclick="toggleContent(2)" data-lang-key="accordion_title_2">
+                Самовывоз
+                <span class="plus-icon">+</span>
+            </div>
+            <div class="info-content" id="info2">
+                <div class="content-pre" data-lang-key="accordion_content_2">
+                    Самовывоз:
+
+                    BARS определяет дату и время самовывоза индивидуально под каждый дроп.
+
+                    Мы скоро появимся в offline.
+
+                    Следите за нашим Instagram, там мы оповещаем об открытии самовывоза.
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+<footer class="footer" id="contacts-footer">
+    <div class="container">
+        <div class="footer-map-container">
+            <img src="image.jpg" alt="Карта орны"> 
+        </div>
+        
+        <div class="footer-grid">
+            <div class="footer-logo">BARS</div>
+            
+            <div class="footer-col contact-info">
+                <h4 data-lang-key="footer_contacts">Контакты</h4>
+                <p>г. Алматы, Тастак-1 , 1б , 4 этаж , 405б</p>
+                <strong>+7 708 208 2913</strong>
+                <p>barsewear@gmail.com</p>
+                <p data-lang-key="footer_schedule">Ежедневно с 11:00 до 22:00</p>
+            </div>
+            
+            <div class="footer-col">
+            </div>
+            
+        </div>
+    </div>
+</footer>
+
+<div id="productModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div id="modalContent"></div>
+    </div>
+</div>
+
+<script>
+    // =========================================================================
+    // 1. ТІЛ ДЕРЕКТЕРІ (TRANSLATION DATA)
+    // =========================================================================
+    const translations = {
+        kz: {
+            nav_products: "Өнімдер",
+            nav_address: "Мекенжай",
+            nav_contacts: "Байланыс",
+            hero_slogan: "Өзіңе сен, өзіңді алып шығар",
+            products_title: "АССОРТИМЕНТ",
+            search_placeholder: "Тауарды іздеу...",
+            btn_favorites: "❤️ Таңдаулылар",
+            btn_all_products: "📦 Барлық тауарлар",
+            no_favorites: "Таңдаулы тауарлар тізімі бос.",
+            no_search_results: "Іздеу нәтижесі бойынша тауар табылмады.",
+            modal_price: "Бағасы:",
+            modal_description_title: "Сипаттама:",
+            modal_info_title: "Қосымша ақпарат:",
+            modal_add_fav: "🤍 Таңдаулыларға қосу",
+            modal_remove_fav: "❤️ Таңдаулылардан алып тастау",
+            accordion_title_0: "Қайтару және айырбастау шарттары",
+            accordion_content_0: `Біз BARS-та сіздің сатып алуыңызға қанағаттануыңыз үшін бар күшімізді саламыз.
+
+            Егер бірдеңе дұрыс болмаса, сіз тауарды әрқашан қайтара аласыз немесе айырбастай аласыз.
+
+            <strong>Қайтару мерзімі:</strong>
+            Сіз тауарды алған сәттен бастап 14 күн ішінде қайтара немесе айырбастай аласыз.
+
+            <strong>Қайтару шарттары:</strong>
+            ✔️ Тауар киілмеген және пайдалану іздері жоқ
+            ✔️ Барлық жапсырмалар, белгілер және бастапқы қаптамасы сақталған
+            ✔️ Сатып алуды растайтын құжат (электронды чек) бар
+
+            <strong>Нені қайтаруға болмайды:</strong>
+            Шұлық, іш киім, керек-жарақтар (гигиеналық себептермен)
+            Кию белгілері, дақтар, иістер немесе зақымданулар бар тауарлар
+
+            <strong>Қалай қайтаруға болады:</strong>
+            - Бізге WhatsApp арқылы жазыңыз
+            - Пришлите "Заявление о возврате/обмене"
+            - Біз өтінішті қабылдап, жіберу мекенжайын жібереміз
+
+            Тауарды алғаннан және сәйкестігін тексергеннен кейін, біз 5 жұмыс күні ішінде қаражатты қайтарамыз.
+
+            <strong>Айырбастау:</strong>
+            Қоймада бар болса, тауарды басқа өлшемге немесе үлгіге айырбастай аласыз.
+
+            <strong>Жеткізу ақысын кім төлейді:</strong>
+            Егер қателік біздің тарапымыздан болса — жеткізу өтеледі
+            Егер қайтару жеке себеппен болса — жеткізуді сатып алушы төлейді`,
+            accordion_title_1: "Жеткізу шарттары",
+            accordion_content_1: `BARS-та тауарларды жеткізу кезек бойынша жүзеге асырылады.
+
+            Жіберу басталған күннен бастап 1-3 күн ішінде логистика бөлімінен хабарлама күтіңіз.
+            Тапсырысыңыз жиналған кезде, менеджер сізбен байланысады.
+
+            1. <strong>Алматы бойынша Яндекс жеткізу:</strong>
+            Күн сайын 12:00-19:00 аралығында жұмыс істейді.
+
+            2. <strong>СДЭК Қазақстан курьерлік қызметі:</strong>
+            Есікке дейін экспресс жеткізу.
+            Мерзімі: 3-10 күн (аймаққа байланысты)
+            Құны: 2000 - 6000 ₸
+
+            3. <strong>СДЭК ТМД курьерлік қызметі:</strong>
+            Есікке дейін экспресс жеткізу.
+            Мерзімі: 3-10 күн
+            Құны: 3.000-нан 17.000 ₸-ға дейін
+
+            4. <strong>ҚазПошта:</strong>
+            Жақын орналасқан пунктке дейін жеткізу.
+            Мерзімі: 10-12 күн
+            Құны: 1700 - 3000 ₸
+
+            5. <strong>Басқа елдер (ТМД-дан тыс):</strong>
+            Жеке жеткізу шарттары. WhatsApp арқылы менеджермен байланысыңыз.`,
+            accordion_title_2: "Өзі алып кету",
+            accordion_content_2: `Өзі алып кету:
+
+            BARS әрбір дропқа өзі алып кету күні мен уақытын жеке анықтайды.
+
+            Біз жақын арада оффлайн режимде пайда боламыз.
+
+            Өзі алып кетудің ашылуы туралы Instagram-да хабарлаймыз.`,
+            footer_contacts: "Байланыс",
+            footer_schedule: "Күн сайын 11:00-ден 22:00-ге дейін",
+            
+            // Ойын мәтіндері
+            game_controls: "Басқару: WASD немесе Бағыттау пернелері. Ату: SPACE",
+            game_over_title: "Ойын Аяқталды!",
+            game_final_score: "Ұпайыңыз: ",
+            game_high_score: "Ең Үздік Ұпай: ",
+            game_restart_button: "Қайта Бастау",
+            game_exit_button: "Сайтқа Оралу"
+        },
+        ru: {
+            nav_products: "Продукция",
+            nav_address: "Адрес",
+            nav_contacts: "Контакты",
+            hero_slogan: "OZINE SEN OZINDI ALYP SHYGAR",
+            products_title: "АССОРТИМЕНТ",
+            search_placeholder: "Поиск товара...",
+            btn_favorites: "❤️ Избранное",
+            btn_all_products: "📦 Все товары",
+            no_favorites: "Список избранных товаров пуст.",
+            no_search_results: "По результатам поиска товар не найден.",
+            modal_price: "Цена:",
+            modal_description_title: "Описание:",
+            modal_info_title: "Дополнительная информация:",
+            modal_add_fav: "🤍 Добавить в избранное",
+            modal_remove_fav: "❤️ Удалить из избранного",
+            accordion_title_0: "Условия возврата и обмена",
+            accordion_content_0: `Мы в BARS стараемся сделать так, чтобы вы остались довольны покупкой.
+
+            Если что-то пошло не так — вы всегда можете вернуть или обменять товар.
+
+            <strong>Срок возврата:</strong>
+            Вы можете вернуть или обменять товар в течение 14 дней с момента получения заказа.
+
+            <strong>Условия для возврата:</strong>
+            ✔️ Товар не был в носке и не имеет следов использования
+            ✔️ Сохранены все бирки, ярлыки и оригинальная упаковка
+            ✔️ Есть документ, подтверждающий покупку (электронный чек)
+
+            <strong>Что нельзя вернуть:</strong>
+            Носки, нижнее бельё, аксессуары (по гигиеническим соображениям)
+            Товары с признаками ношения, пятнами, запахами или повреждениями
+
+            <strong>Как вернуть товар:</strong>
+            - Напишите нам на WhatsApp
+            - Пришлите "Заявление о возврате/обмене"
+            - Мы примем заявление и вышлем адрес для отправки
+
+            После получения товара и проверки на соответствие, мы оформим возврат средств в течение 5 рабочих дней.
+
+            <strong>Обмен:</strong>
+            Вы можете обменять товар на другой размер или модель при наличии на складе.
+
+            <strong>Кто оплачивает доставку:</strong>
+            Если ошибка с нашей стороны — доставка компенсируется
+            Если возврат по личной причине — доставка за счёт покупателя`,
+            accordion_title_1: "Условия доставки",
+            accordion_content_1: `Доставка товаров в BARS осуществляется в порядке очереди.
+
+            Ожидайте уведомление от отдела логистики в течение 1-3 дней со дня старта отправок.
+            Как только ваш заказ будет собран, с вами свяжется менеджер.
+
+            1. <strong>Доставка Яндекс по Алмате:</strong>
+            Работает ежедневно с 12:00-19:00.
+
+            2. <strong>Курьерская служба СДЭК Казахстан:</strong>
+            Экспресс доставка до двери.
+            Срок: 3-10 дней (в зависимости от региона)
+            Стоимость: 2000 - 6000 ₸
+
+            3. <strong>Курьерская служба СДЭК СНГ:</strong>
+            Экспресс доставка до двери.
+            Срок: 3-10 дней
+            Стоимость: от 3.000 до 17.000 ₸
+
+            4. <strong>КазПочта:</strong>
+            Доставка до ближайшего пункта.
+            Срок: 10-12 дней
+            Стоимость: 1700 - 3000 ₸
+
+            5. <strong>Другие страны (вне СНГ):</strong>
+            Индивидуальные условия доставки. Свяжитесь с менеджером в WhatsApp.`,
+            accordion_title_2: "Самовывоз",
+            accordion_content_2: `Самовывоз:
+
+            BARS определяет дату и время самовывоза индивидуально под каждый дроп.
+
+            Мы скоро появимся в offline.
+
+            Следите за нашим Instagram, там мы оповещаем об открытии самовывоза.`,
+            footer_contacts: "Контакты",
+            footer_schedule: "Ежедневно с 11:00 до 22:00",
+
+            // Ойын мәтіндері
+            game_controls: "Управление: WASD или Стрелки. Выстрел: SPACE",
+            game_over_title: "Игра Окончена!",
+            game_final_score: "Ваш Счет: ",
+            game_high_score: "Лучший Счет: ",
+            game_restart_button: "Начать Сначала",
+            game_exit_button: "Вернуться на Сайт"
+        },
+        en: {
+            nav_products: "Products",
+            nav_address: "Address",
+            nav_contacts: "Contacts",
+            hero_slogan: "TRUST YOURSELF, YOU WILL BE ABLE TO ACHIEVE",
+            products_title: "ASSORTMENT",
+            search_placeholder: "Search product...",
+            btn_favorites: "❤️ Favorites",
+            btn_all_products: "📦 All Products",
+            no_favorites: "The list of favorite products is empty.",
+            no_search_results: "No product found based on search results.",
+            modal_price: "Price:",
+            modal_description_title: "Description:",
+            modal_info_title: "Additional Information:",
+            modal_add_fav: "🤍 Add to Favorites",
+            modal_remove_fav: "❤️ Remove from Favorites",
+            accordion_title_0: "Return and Exchange Conditions",
+            accordion_content_0: `At BARS, we strive to make sure you are satisfied with your purchase.
+
+            If something goes wrong, you can always return or exchange the product.
+
+            <strong>Return period:</strong>
+            You can return or exchange the product within 14 days from the date of receipt of the order.
+
+            <strong>Conditions for return:</strong>
+            ✔️ The product has not been worn and has no traces of use
+            ✔️ All tags, labels and original packaging are preserved
+            ✔️ There is a document confirming the purchase (electronic receipt)
+
+            <strong>What cannot be returned:</strong>
+            Socks, underwear, accessories (for hygienic reasons)
+            Items with signs of wear, stains, odors or damage
+
+            <strong>How to return the product:</strong>
+            - Write to us on WhatsApp
+            - Send the "Return/Exchange Application"
+            - We will accept the application and send the shipping address
+
+            After receiving the product and checking for compliance, we will process the refund within 5 working days.
+
+            <strong>Exchange:</strong>
+            You can exchange the product for a different size or model if available in stock.
+
+            <strong>Who pays for delivery:</strong>
+            If the mistake is on our side - delivery is compensated
+            If the return is for a personal reason - delivery is at the buyer's expense`,
+            accordion_title_1: "Delivery Conditions",
+            accordion_content_1: `Delivery of goods in BARS is carried out in order of priority.
+
+            Expect notification from the logistics department within 1-3 days from the start of shipments.
+            As soon as your order is collected, the manager will contact you.
+
+            1. <strong>Yandex Delivery in Almaty:</strong>
+            Works daily from 12:00-19:00.
+
+            2. <strong>SDEK Courier Service Kazakhstan:</strong>
+            Express delivery to the door.
+            Term: 3-10 days (depending on the region)
+            Cost: 2000 - 6000 ₸
+
+            3. <strong>SDEK CIS Courier Service:</strong>
+            Express delivery to the door.
+            Term: 3-10 days
+            Cost: from 3,000 to 17,000 ₸
+
+            4. <strong>KazPost:</strong>
+            Delivery to the nearest point.
+            Term: 10-12 days
+            Cost: 1700 - 3000 ₸
+
+            5. <strong>Other countries (outside the CIS):</strong>
+            Individual delivery conditions. Contact the manager on WhatsApp.`,
+            accordion_title_2: "Self-Pickup",
+            accordion_content_2: `Self-Pickup:
+
+            BARS determines the date and time of self-pickup individually for each drop.
+
+            We will appear offline soon.
+
+            Follow our Instagram, where we announce the opening of self-pickup.`,
+            footer_contacts: "Contacts",
+            footer_schedule: "Daily from 11:00 to 22:00",
+
+            // Game texts
+            game_controls: "Controls: WASD or Arrows. Shoot: SPACE",
+            game_over_title: "Game Over!",
+            game_final_score: "Your Score: ",
+            game_high_score: "High Score: ",
+            game_restart_button: "Restart Game",
+            game_exit_button: "Return to Site"
+        },
+    };
+
+    let currentLang = localStorage.getItem('language') || 'ru';
+    
+    // =========================================================================
+    // 2. PRODUCT DATA (MULTILINGUAL) (Өзгеріссіз қалды)
+    // =========================================================================
+    const products = [
+        { 
+            id: 1, 
+            title: "ALMATY T-shirt", 
+            price: "15.000 ₸", 
+            image: "1.png", 
+            gallery: ["11.png", "1.png", "333.mp4"], 
+            description: {
+                ru: "Это уникальная футболка в стиле города Алматы. Сшита из мягкой ткани, очень удобна для повседневной носки. Образец казахстанского дизайна.",
+                kz: "Бұл Алматы қаласы стиліндегі бірегей футболка. Жұмсақ матадан тігілген, күнделікті киюге өте ыңғайлы. Қазақстандық дизайнның үлгісі.",
+                en: "This is a unique T-shirt in the style of Almaty city. Made of soft fabric, very comfortable for everyday wear. A sample of Kazakh design."
+            },
+            additionalInfo: {
+                ru: "Материал: 100% хлопок. Премиум качество, ручная работа принта. Количество товара ограничено! Доставляется в индивидуальной упаковке.",
+                kz: "Материал: 100% мақта. Премиум сапа, принт қолмен салынған. Тауар саны шектеулі! Жеке қаптамада жеткізіледі.",
+                en: "Material: 100% cotton. Premium quality, handmade print. Limited stock! Delivered in individual packaging."
+            }
+        },
+        { 
+            id: 2, 
+            title: "ALMATY SWEATER", 
+            price: "28.000 ₸", 
+            image: "2.png", 
+            gallery: ["22.png", "2.png" ,"жасыл свитер.mp4"],
+            description: {
+                ru: "Теплый и стильный свитшот для холодной погоды. Вдохновлен горами Алматы. Изготовлен из высококачественных материалов.",
+                kz: "Суық ауа райына арналған жылы және стильді свитшот. Алматы тауларынан шабыт алған. Жоғары сапалы материалдардан жасалған.",
+                en: "Warm and stylish sweatshirt for cold weather. Inspired by the mountains of Almaty. Made from high-quality materials."
+            },
+            additionalInfo: {
+                ru: "Материал: Смесь флиса/хлопка. Теплый, мягкий и прочный. Сделано в Казахстане. Дополнительно: Бонусный стикерпак.",
+                kz: "Материал: Флис/мақта қоспасы. Жылы, жұмсақ және берік. Қазақстанда жасалған. Қосымша: Бонустық стикерлер жиынтығы.",
+                en: "Material: Fleece/cotton blend. Warm, soft and durable. Made in Kazakhstan. Additionally: Bonus sticker pack."
+            }
+        },
+        { 
+            id: 3, 
+            title: "SWAGASTAN POLO", 
+            price: "16.000 ₸", 
+            image: "свэгстан.png", 
+            gallery: ["свэгстан.png" , "ак футболка.mp4"], 
+            description: {
+                ru: 'Стильная футболка поло с логотипом "SWAGASTAN". Подходит для спортивного и кэжуал стиля, сшита из высококачественного материала. Уникальный дизайн, пользующийся спросом среди молодежи.',
+                kz: 'Стильді поло футболкасы "SWAGASTAN" логотипімен. Спорттық және кэжуал стильге жарайды, жоғары сапалы материалдан тігілген. Жастар арасында сұранысқа ие бірегей дизайн.',
+                en: 'Stylish polo shirt with the "SWAGASTAN" logo. Suitable for sports and casual style, sewn from high-quality material. Unique design, popular among young people.'
+            },
+            additionalInfo: {
+                ru: 'Материал: Ткань пике (95% хлопок, 5% эластан). Цвет: Белый/Черный. Хорошо дышит. Вдохновлено казахстанской уличной культурой.',
+                kz: 'Материал: Пике матасы (95% мақта, 5% эластан). Түсі: Ақ/Қара. Жақсы тыныс алады. Қазақстандық көше мәдениетінен шабыт алған.',
+                en: 'Material: Pique fabric (95% cotton, 5% elastane). Color: White/Black. Highly breathable. Inspired by Kazakh street culture.'
+            }
+        },
+        { id: 4, title: "OYULI SOMKE", price: "11.000 ₸", image: "3.png", gallery: ["33.png", "3.png" , "кок сомке.mp4"], description: {ru: "Модная сумка, украшенная национальным орнаментом (ою-өрнек). Подходит для ношения повседневных вещей, имеет уникальный дизайн.", kz: "Ұлттық ою-өрнекпен безендірілген сәнді сөмке. Күнделікті заттарды алып жүруге қолайлы, бірегей дизайны бар.", en: "Fashionable bag decorated with national ornament (oyu-örnek). Suitable for carrying everyday items, with a unique design."}, additionalInfo: {ru: "Материал: Прочный брезент. Ручная вышивка орнамента. Размер: 35см x 40см. Экологически чистый продукт.", kz: "Материал: Берік брезент. Ою-өрнек қолмен кестеленген. Өлшемі: 35см x 40см. Экологиялық таза өнім.", en: "Material: Durable canvas. Hand embroidery of the ornament. Size: 35cm x 40cm. Environmentally friendly product."}},
+        { id: 5, title: "QONYR OYULI SOMKE", price: "11.000 ₸", image: "4.png", gallery: ["44.png", "4.png" , "коныр сомке.mp4"], description: {ru: "Коричневая, классическая сумка с орнаментом. Подходит к любому стилю одежды, отличается прочностью.", kz: "Ою-өрнегі бар қоңыр, классикалық сөмке. Кез келген киім стиліне жарасады, беріктігімен ерекшеленеді.", en: "Brown, classic bag with ornament. Suitable for any clothing style, characterized by durability."}, additionalInfo: {ru: "Материал: Плотный текстиль. Цвет: Коричневый. Аксессуар в национальном стиле. Легко чистится.", kz: "Материал: Қалың тоқыма. Түсі: Қоңыр. Ұлттық стильдегі аксессуар. Оңай тазаланады.", en: "Material: Thick textile. Color: Brown. Accessory in national style. Easy to clean."}},
+        { id: 6, title: "KARAGANDY JACKET", price: "35.000 ₸", image: "5.png", gallery: ["55.png", "5.png" , "кара жакет.mp4"], description: {ru: "Теплая куртка в стиле Караганды. Качественный пошив, современный дизайн.", kz: "Қарағанды стиліндегі жылы күрте. Сапалы тігіс, заманауи дизайн.", en: "Warm jacket in Karaganda style. Quality tailoring, modern design."}, additionalInfo: {ru: "Внешний слой водонепроницаемый. Внутренний слой: Утеплитель. Количество карманов: 4. Сделано в Казахстане.", kz: "Сыртқы қабаты су өткізбейді. Ішкі қабаты: Жылытқыш. Қалталар саны: 4. Қазақстанда жасалған.", en: "Outer layer is waterproof. Inner layer: Insulation. Number of pockets: 4. Made in Kazakhstan."}},
+        { id: 7, title: "KAZAKHSTAN JILET", price: "18.000 ₸", image: "6.png", gallery: ["66.png", "6.png" , "кара жилет.mp4"], description: {ru: "Удобный жилет с логотипом Казахстана. Защищает от ветра, предназначен для активного отдыха.", kz: "Қазақстан логотипі бар ыңғайлы жилет. Желден қорғайды, белсенді демалысқа арналған.", en: "Comfortable vest with the Kazakhstan logo. Protects from wind, designed for outdoor activities."}, additionalInfo: {ru: "Материал: Синтетический наполнитель. Высокая теплоизоляция. Легкий и компактный.", kz: "Материал: Синтетикалық толтырғыш. Жоғары жылу оқшаулау. Жеңіл және ықшам.", en: "Material: Synthetic filler. High thermal insulation. Light and compact."}},
+        { id: 8, title: "ALA SOMKE", price: "15.000 ₸", image: "7.png", gallery: ["77.png", "7.png"], description: {ru: "Пестрая, разноцветная сумка. Идеально подходит для летнего сезона и молодежного стиля. Дарит веселое настроение.", kz: "Алабажақ, түрлі-түсті сөмке. Жазғы маусымға және жастар стиліне өте қолайлы. Көңілді көңіл-күй сыйлайды.", en: "Colorful, multicolored bag. Ideal for the summer season and youth style. Gives a cheerful mood."}, additionalInfo: {ru: "Материал: Прочная ткань. Яркие цвета. Для повседневного использования.", kz: "Материал: Берік мата. Ашық түстер. Күнделікті қолдануға арналған.", en: "Material: Durable fabric. Bright colors. For everyday use."}},
+        { id: 9, title: "KARAGANDY SOMKE", price: "22.000 ₸", image: "8.png", gallery: ["88.png", "8.png"], description: {ru: "Функциональный рюкзак с мотивами города Караганды. Удобен для путешествий и учебы.", kz: "Қарағанды қаласының мотивтері бар функционалды рюкзак. Саяхатқа және оқуға ыңғайлы.", en: "Functional backpack with motifs of Karaganda city. Convenient for travel and study."}, additionalInfo: {ru: "Объем: 25 литров. Спинка: Анатомическая. Дополнительно: Отделение для ноутбука.", kz: "Көлемі: 25 литр. Арқасы: Анатомиялық. Қосымша: Ноутбукке арналған бөлім.", en: "Volume: 25 liters. Back: Anatomical. Additionally: Laptop compartment."}},
+        { id: 10, title: "SHALBAR", price: "19.000 ₸", image: "9.png", gallery: ["99.png", "9.png"], description: {ru: "Удобные и широкие брюки. Подходят для спортивного и повседневного ношения. Не сковывают движений.", kz: "Ыңғайлы және кең шалбар. Спорттық және күнделікті киюге жарайды. Қозғалысты шектемейді.", en: "Comfortable and wide trousers. Suitable for sports and everyday wear. Do not restrict movements."}, additionalInfo: {ru: "Материал: 95% хлопок, 5% эластан. Пояс: Резинка. Цвет: Черный.", kz: "Материал: 95% мақта, 5% эластан. Белдік: Резеңке. Түсі: Қара.", en: "Material: 95% cotton, 5% elastane. Waist: Elastic band. Color: Black."}},
+        { id: 11, title: "KOSTUM", price: "17.000 ₸", image: "10.png", gallery: ["1010.png", "10.png"], description: {ru: "Стильный костюм для свободного ношения. Сшит из мягкой ткани, идеально подходит для отдыха.", kz: "Еркін киюге арналған стильді костюм. Жұмсақ матадан тігілген, демалысқа өте қолайлы.", en: "Stylish suit for casual wear. Made of soft fabric, ideal for leisure."}, additionalInfo: {ru: "Материал: Футер трехнитка. Комплект верхней и нижней части. Цвет: Синий.", kz: "Материал: Үш жіпті футер. Үстіңгі және астыңғы бөліктен тұратын жиынтық. Түсі: Көк.", en: "Material: Three-thread footer. Top and bottom set. Color: Blue."}},
+        { id: 12, title: "O-Ө SHALBAR", price: "24.000 ₸", image: "111.png", gallery: [], description: {ru: "Уникальные брюки с буквами О-Ө. Для тех, кто ценит особенный стиль.", kz: "О-Ө әріптері бар бірегей шалбар. Ерекше стильді бағалайтындар үшін.", en: "Unique trousers with the letters O-Ө. For those who value a special style."}, additionalInfo: {ru: "Материал: Плотный хлопок. Карманы: 2 по бокам, 1 сзади. Только в нашем магазине.", kz: "Материал: Қалың мақта. Қалталар: 2 бүйірінде, 1 артында. Тек біздің дүкенде.", en: "Material: Thick cotton. Pockets: 2 on the sides, 1 on the back. Only in our store."}},
+        { id: 13, title: "GGG SOMKE", price: "77.777 ₸", image: "777.png", gallery: ["777.png" , "кара сомке.mp4"], description: {ru: "Эксклюзивная сумка, посвященная легендарному Геннадию Головкину. Высокая коллекционная ценность.", kz: "Аты аңызға айналған Геннадий Головкинге арналған эксклюзивті сөмке. Жоғары коллекциялық құндылық.", en: "Exclusive bag dedicated to the legendary Gennady Golovkin. High collectible value."}, additionalInfo: {ru: "Ограниченный тираж. С автографом (принт). Предназначен для профессиональных спортсменов.", kz: "Шектеулі таралым. Автографпен (принт). Кәсіби спортшыларға арналған.", en: "Limited edition. With autograph (print). Intended for professional athletes."}},
+        { id: 14, title: "ASTANA SNEAKERS", price: "22.000 ₸", image: "a.png", gallery: [], description: {ru: "Кроссовки, наполненные энергией города Астаны. Идеально подходят для ежедневных прогулок.", kz: "Астана қаласының энергиясымен толтырылған кроссовкалар. Күнделікті серуендеуге өте қолайлы.", en: "Sneakers filled with the energy of Astana city. Ideal for daily walks."}, additionalInfo: {ru: "Подошва: Прочная резина. Верх: Дышащая сетка. Очень легкие.", kz: "Табаны: Берік резеңке. Үстіңгі қабаты: Тыныс алатын тор. Өте жеңіл.", en: "Sole: Durable rubber. Upper: Breathable mesh. Very light."}},
+        { id: 15, title: "KARAGANDY SNEAKERS", price: "22.000 ₸", image: "aa.png", gallery: [], description: {ru: "Кроссовки в суровом, но стильном духе Караганды. Надежный спутник в любом месте.", kz: "Қарағандының қатал, бірақ стильді рухындағы кроссовкалар. Кез келген жерде сенімді серік.", en: "Sneakers in the harsh but stylish spirit of Karaganda. A reliable companion everywhere."}, additionalInfo: {ru: "Подошва: Амортизационная система. Материал: Высококачественный кожзаменитель. Спортивный стиль.", kz: "Табаны: Амортизациялық жүйе. Материал: Жоғары сапалы былғары алмастырғыш. Спорттық стиль.", en: "Sole: Amortization system. Material: High-quality leather substitute. Sporty style."}}
+    ];
+
+    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+    // =========================================================================
+    // 3. ТІЛ АУЫСТЫРУ ЛОГИКАСЫ (LANGUAGE SWITCHER LOGIC) (Жаңартылған)
+    // =========================================================================
+
+    function applyTranslations() {
+        const langData = translations[currentLang];
+        document.querySelectorAll('[data-lang-key]').forEach(el => {
+            const key = el.getAttribute('data-lang-key');
+            if (langData[key]) {
+                el.textContent = langData[key];
+            }
+        });
+        document.querySelectorAll('[data-lang-placeholder]').forEach(el => {
+            const key = el.getAttribute('data-lang-placeholder');
+            if (langData[key]) {
+                el.placeholder = langData[key];
+            }
+        });
+        
+        // Аккордеон мәтіндерін жаңарту
+        for (let i = 0; i < 3; i++) {
+            const titleEl = document.querySelector(`#item${i} .info-title`);
+            const contentEl = document.querySelector(`#info${i} .content-pre`);
+            
+            if (titleEl && langData[`accordion_title_${i}`]) {
+                titleEl.childNodes[0].nodeValue = langData[`accordion_title_${i}`].trim();
+            }
+            if (contentEl && langData[`accordion_content_${i}`]) {
+                contentEl.innerHTML = langData[`accordion_content_${i}`];
+            }
+        }
+
+        // Ойын мәтіндерін жаңарту
+        document.getElementById('finalScore').textContent = langData.game_final_score + (game.score !== undefined ? game.score : '0');
+        document.getElementById('highScore').textContent = langData.game_high_score + (game.highScore !== undefined ? game.highScore : '0');
+        
+        // Тіл батырмаларын жаңарту
+        document.querySelectorAll('.language-switcher button').forEach(button => {
+            button.classList.remove('active');
+        });
+        document.getElementById(`lang-${currentLang}`).classList.add('active');
+
+        // Тауарларды қайта рендерлеу 
+        renderProducts(products, "allProducts");
+        updateFavoritesDisplay(); 
+        
+        // Модаль ашық болса, оны жаңарту
+        const modal = document.getElementById("productModal");
+        if (modal.style.display === "flex") {
+            const currentProductId = parseInt(document.getElementById('modalContent').dataset.id);
+            if (!isNaN(currentProductId)) {
+                 openProductModal(currentProductId);
+            }
+        }
+    }
+
+    function changeLanguage(lang) {
+        currentLang = lang;
+        localStorage.setItem('language', lang);
+        applyTranslations();
+    }
+
+    // =========================================================================
+    // 4. ОЙЫН ЛОГИКАСЫ (BARS SPACE SHOOTER)
+    // =========================================================================
+    
+    const game = {
+        area: document.getElementById('gameArea'),
+        ship: document.getElementById('playerShip'),
+        scoreEl: document.getElementById('gameScore'),
+        overlay: document.getElementById('gameOverlay'),
+        gameOverScreen: document.getElementById('gameOverScreen'),
+        isPlaying: false,
+        score: 0,
+        highScore: parseInt(localStorage.getItem('highScore') || '0'),
+        shipX: 0,
+        shipY: 50,
+        shipSpeed: 5, 
+        bulletSpeed: 10,
+        meteorSpeed: 2, 
+        initialMeteorSpeed: 2, 
+        meteorSpawnRate: 1000, 
+        lastShootTime: 0,
+        shootDelay: 300, 
+        keys: {},
+        animationFrame: null,
+        gameInterval: null,
+        difficultyInterval: null,
+        meteorTimer: null 
+    };
+
+    function initializeGame() {
+        game.area.style.display = 'block';
+        game.gameOverScreen.style.display = 'none';
+        
+        // Ғарыш кемесін ортаға орналастыру
+        game.shipX = (game.area.clientWidth / 2) - (game.ship.clientWidth / 2);
+        game.shipY = game.ship.clientHeight; 
+        game.ship.style.left = game.shipX + 'px';
+        game.ship.style.bottom = game.shipY + 'px';
+
+        game.score = 0;
+        game.scoreEl.textContent = game.score;
+        game.meteorSpeed = game.initialMeteorSpeed;
+        game.isPlaying = true;
+        
+        // Ескі нысандарды жою
+        document.querySelectorAll('.meteor, .bullet').forEach(el => el.remove());
+
+        // Ойын циклдарын бастау
+        game.animationFrame = requestAnimationFrame(gameLoop);
+        game.meteorTimer = setInterval(spawnMeteor, game.meteorSpawnRate);
+        game.difficultyInterval = setInterval(increaseDifficulty, 10000); 
+    }
+
+    function gameLoop() {
+        if (!game.isPlaying) return;
+
+        // Ұпайды жаңарту (әр 60 кадрда ~ 1 секунд)
+        game.score += 1;
+        game.scoreEl.textContent = Math.floor(game.score / 60);
+
+        handleMovement();
+        updateBullets();
+        updateMeteors();
+        checkCollisions();
+
+        game.animationFrame = requestAnimationFrame(gameLoop);
+    }
+
+    function handleMovement() {
+        const areaWidth = game.area.clientWidth;
+        const areaHeight = game.area.clientHeight;
+        const shipSize = game.ship.clientWidth;
+
+        let moved = false;
+        
+        if (game.keys['KeyW'] || game.keys['ArrowUp']) {
+            game.shipY = Math.min(game.shipY + game.shipSpeed, areaHeight - shipSize);
+            moved = true;
+        }
+        if (game.keys['KeyS'] || game.keys['ArrowDown']) {
+            game.shipY = Math.max(game.shipY - game.shipSpeed, shipSize / 2); // Кеменің төменгі жартысын қалдыру
+            moved = true;
+        }
+        if (game.keys['KeyA'] || game.keys['ArrowLeft']) {
+            game.shipX = Math.max(game.shipX - game.shipSpeed, 0);
+            moved = true;
+        }
+        if (game.keys['KeyD'] || game.keys['ArrowRight']) {
+            game.shipX = Math.min(game.shipX + game.shipSpeed, areaWidth - shipSize);
+            moved = true;
+        }
+        
+        // Ғарыш кемесін жылжыту
+        game.ship.style.left = game.shipX + 'px';
+        game.ship.style.bottom = game.shipY + 'px';
+
+        // Ату
+        if ((game.keys['Space'] || game.keys['space']) && (Date.now() - game.lastShootTime > game.shootDelay)) {
+            spawnBullet();
+            game.lastShootTime = Date.now();
+        }
+    }
+
+    function spawnBullet() {
+        const bullet = document.createElement('div');
+        bullet.className = 'bullet';
+        bullet.style.left = game.shipX + (game.ship.clientWidth / 2) - 2.5 + 'px'; 
+        bullet.style.bottom = game.shipY + game.ship.clientHeight / 2 + 'px'; 
+        game.area.appendChild(bullet);
+    }
+
+    function updateBullets() {
+        document.querySelectorAll('.bullet').forEach(bullet => {
+            let bottom = parseInt(bullet.style.bottom);
+            bottom += game.bulletSpeed;
+            bullet.style.bottom = bottom + 'px';
+
+            if (bottom > game.area.clientHeight) {
+                bullet.remove();
+            }
+        });
+    }
+
+    function spawnMeteor() {
+        if (!game.isPlaying) return;
+        
+        const meteor = document.createElement('div');
+        meteor.className = 'meteor';
+        // Ені 40px
+        const size = 40; 
+        const areaWidth = game.area.clientWidth;
+        
+        // Метеоритті кездейсоқ жерден шығару
+        const randomX = Math.floor(Math.random() * (areaWidth - size));
+        meteor.style.left = randomX + 'px';
+        meteor.style.top = -size + 'px'; // Экраннан тыс
+
+        game.area.appendChild(meteor);
+    }
+
+    function updateMeteors() {
+        document.querySelectorAll('.meteor').forEach(meteor => {
+            let top = parseInt(meteor.style.top);
+            top += game.meteorSpeed;
+            meteor.style.top = top + 'px';
+
+            if (top > game.area.clientHeight) {
+                // Егер метеорит төменге жетсе, ойын аяқталады (соқтығыссыз өтсе де)
+                // Немесе оны жойып, ұпай қосуға болады. Динозавр ойыны сияқты - бұл жеңіліс.
+                gameOver();
+            }
+        });
+    }
+
+    function checkCollisions() {
+        const bullets = document.querySelectorAll('.bullet');
+        const meteors = document.querySelectorAll('.meteor');
+        const shipRect = game.ship.getBoundingClientRect();
+        const areaRect = game.area.getBoundingClientRect();
+
+        // 1. Кеме мен Метеорит соқтығысы
+        meteors.forEach(meteor => {
+            const meteorRect = meteor.getBoundingClientRect();
+
+            if (
+                shipRect.left < meteorRect.right &&
+                shipRect.right > meteorRect.left &&
+                shipRect.top < meteorRect.bottom &&
+                shipRect.bottom > meteorRect.top
+            ) {
+                gameOver();
+            }
+
+            // 2. Оқ пен Метеорит соқтығысы
+            bullets.forEach(bullet => {
+                const bulletRect = bullet.getBoundingClientRect();
+
+                if (
+                    bulletRect.left < meteorRect.right &&
+                    bulletRect.right > meteorRect.left &&
+                    bulletRect.top < meteorRect.bottom &&
+                    bulletRect.bottom > meteorRect.top
+                ) {
+                    bullet.remove();
+                    meteor.remove();
+                    // Ұпай қосу (Метеоритті атып түсіргені үшін)
+                    game.score += 30; 
+                }
+            });
+        });
+    }
+    
+    function increaseDifficulty() {
+        if (!game.isPlaying) return;
+        
+        game.meteorSpeed += 0.5; // Жылдамдықты арттыру
+        
+        if (game.meteorSpawnRate > 300) {
+            game.meteorSpawnRate -= 100; // Шығу жылдамдығын арттыру
+            clearInterval(game.meteorTimer);
+            game.meteorTimer = setInterval(spawnMeteor, game.meteorSpawnRate);
+        }
+    }
+
+
+    function gameOver() {
+        game.isPlaying = false;
+        cancelAnimationFrame(game.animationFrame);
+        clearInterval(game.meteorTimer);
+        clearInterval(game.difficultyInterval);
+
+        const finalScore = Math.floor(game.score / 60);
+        
+        // Ең жоғары ұпайды тексеру
+        if (finalScore > game.highScore) {
+            game.highScore = finalScore;
+            localStorage.setItem('highScore', game.highScore);
+        }
+        
+        // Экранда көрсету
+        const langData = translations[currentLang];
+        document.getElementById('finalScore').textContent = langData.game_final_score + finalScore;
+        document.getElementById('highScore').textContent = langData.game_high_score + game.highScore;
+        document.getElementById('gameOverScreen').style.display = 'flex';
+    }
+
+    // Басқару элементтерін қосу/алып тастау
+    document.addEventListener('keydown', (e) => {
+        if (game.isPlaying) {
+            game.keys[e.code] = true;
+            // SPACE немесе Стрелка/WASD басу кезінде беттің айналуын тоқтату
+            if (['Space', 'KeyW', 'KeyA', 'KeyS', 'KeyD', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.code)) {
+                e.preventDefault();
+            }
+        }
+    });
+
+    document.addEventListener('keyup', (e) => {
+        if (game.isPlaying) {
+            game.keys[e.code] = false;
+        }
+    });
+
+    document.getElementById('restartButton').addEventListener('click', () => {
+        initializeGame();
+    });
+    
+    // =========================================================================
+    // 5. ОФФЛАЙН ЛОГИКАСЫ (OFFLINE LOGIC)
+    // =========================================================================
+
+    function checkConnectionAndShowGame() {
+        // Егер интернет жоқ болса
+        if (!navigator.onLine) {
+            // Барлық сайт мазмұнын жасыру
+            document.getElementById('mainHeader').classList.add('hidden');
+            document.getElementById('mainHero').classList.add('hidden');
+            document.getElementById('products-section').classList.add('hidden');
+            document.getElementById('contacts-footer').classList.add('hidden');
+
+            // Ойынды көрсету
+            document.getElementById('gameOverlay').style.display = 'flex';
+            initializeGame();
+            
+            // Егер музыка ойнап тұрса, оны тоқтату
+            if (!music.paused) {
+                toggleMusic(); 
+            }
+        } else {
+            // Интернет бар болса, ойынды жасыру
+            document.getElementById('gameOverlay').style.display = 'none';
+            // Негізгі сайт мазмұнын көрсету (бір рет кіргенде, бұл бөлім қайта көрсетіледі)
+            document.getElementById('mainHeader').classList.remove('hidden');
+            document.getElementById('mainHero').classList.remove('hidden');
+            document.getElementById('products-section').classList.remove('hidden');
+            document.getElementById('contacts-footer').classList.remove('hidden');
+
+            // Ойынды тоқтату
+            if (game.isPlaying) {
+                 gameOver();
+            }
+        }
+    }
+    
+    // Байланыс өзгергенде тексеру
+    window.addEventListener('online', checkConnectionAndShowGame);
+    window.addEventListener('offline', checkConnectionAndShowGame);
+
+
+    // =========================================================================
+    // 6. БАСҚА ФУНКЦИЯЛАР (Өзгеріссіз қалды)
+    // =========================================================================
+
+    function isVideo(fileName) {
+        return fileName.endsWith('.mp4');
+    }
+
+    function renderProducts(arr, containerId) {
+        const container = document.getElementById(containerId);
+        container.innerHTML = "";
+
+        const langData = translations[currentLang];
+
+        if (containerId === "favoritesProducts" && arr.length === 0) {
+            container.innerHTML = `<p style="color: white; font-size: 20px; text-align: center; width: 100%;">${langData.no_favorites}</p>`;
+            return;
+        }
+
+        if (arr.length === 0 && containerId === "allProducts" && document.getElementById("searchInput").value.length > 0) {
+            container.innerHTML = `<p style="color: white; font-size: 20px; text-align: center; width: 100%;">${langData.no_search_results}</p>`;
+            return;
+        }
+
+
+        arr.forEach(p => {
+            container.innerHTML += `
+            <div class="product-card" data-id="${p.id}">
+                <img src="${p.image}" class="product-image">
+                <div class="favorite-heart ${favorites.includes(p.id) ? 'active' : ''}"
+                    onclick="toggleFavorite(${p.id}); event.stopPropagation();"></div>
+                <div class="product-info">
+                    <h3 class="product-title">${p.title}</h3>
+                    <div class="product-price">${p.price}</div>
+                </div>
+            </div>`;
+        });
+
+        document.querySelectorAll(`#${containerId} .product-card`).forEach(card => {
+            card.onclick = () => openProductModal(parseInt(card.dataset.id));
+        });
+    }
+
+    function toggleFavorite(id) {
+        const index = favorites.indexOf(id);
+        if (index > -1) {
+            favorites.splice(index, 1);
+        } else {
+            favorites.push(id);
+        }
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+        
+        renderProducts(products, "allProducts");
+        updateFavoritesDisplay();
+
+        const modal = document.getElementById("productModal");
+        if (modal.style.display === "flex") {
+            openProductModal(id); 
+        }
+    }
+
+    function updateFavoritesDisplay() {
+        const fav = products.filter(p => favorites.includes(p.id));
+        renderProducts(fav, "favoritesProducts");
+    }
+
+    function searchProducts(q) {
+        const filtered = products.filter(p => p.title.toLowerCase().includes(q.toLowerCase()));
+        
+        document.getElementById("favoritesProducts").classList.add("hidden");
+        document.getElementById("allProducts").classList.remove("hidden");
+        
+        renderProducts(filtered, "allProducts");
+    }
+
+    function openProductModal(id) {
+        const p = products.find(x => x.id === id);
+        if (!p) return;
+
+        const langData = translations[currentLang];
+        
+        let galleryHTML = p.gallery.map((g, i) => {
+            const isMediaVideo = isVideo(g);
+            return `
+                <div class="gallery-item" onclick="changeMainMedia('${g}', ${isMediaVideo}, ${id})">
+                    ${isMediaVideo ? `<video src="${g}" muted preload="metadata"></video>` : `<img src="${g}">`}
+                </div>
+            `;
+        }).join("");
+        
+        const defaultMedia = p.gallery.length > 0 ? p.gallery[0] : p.image;
+        const isDefaultVideo = isVideo(defaultMedia);
+
+        const isFav = favorites.includes(p.id);
+
+        document.getElementById("modalContent").setAttribute('data-id', id);
+
+        document.getElementById("modalContent").innerHTML = `
+            <div class="modal-flex">
+                <div class="media-section">
+                    <div class="main-media-container">
+                        ${isDefaultVideo ? 
+                            `<video src="${defaultMedia}" id="mainMedia" class="main-video" controls autoplay loop></video>` : 
+                            `<img src="${defaultMedia}" id="mainMedia" class="main-image">`
+                        }
+                    </div>
+                    <div class="product-gallery">${galleryHTML}</div>
+                </div>
+
+                <div class="info-section-modal">
+                    <h2>${p.title}</h2>
+                    <p style="font-size: 24px; font-weight: bold; color: #550000; margin: 10px 0;">${p.price}</p>
+                    
+                    <div class="description-block" style="margin-top: 20px;">
+                        <h3>${langData.modal_description_title}</h3>
+                        <p>${p.description[currentLang]}</p>
+                    </div>
+
+                    <div class="additional-info-modal">
+                        <h3>${langData.modal_info_title}</h3>
+                        <p>${p.additionalInfo[currentLang]}</p>
+                    </div>
+
+                    <button onclick="toggleFavorite(${p.id}); openProductModal(${p.id});" 
+                        style="margin-top:20px;padding:10px 20px;background:#550000;border:none;border-radius:5px;color:white;font-size: 16px; cursor: pointer;">
+                        ${isFav ? langData.modal_remove_fav : langData.modal_add_fav}
+                    </button>
+                    
+                </div>
+            </div>
+        `;
+
+        document.getElementById("productModal").style.display = "flex";
+        
+        const firstGalleryItem = document.querySelector('.product-gallery .gallery-item');
+        if (firstGalleryItem) {
+            firstGalleryItem.classList.add('active');
+        }
+    }
+
+    function changeMainMedia(src, isVideoMedia) {
+        const mainMediaContainer = document.querySelector('#productModal .main-media-container');
+        mainMediaContainer.innerHTML = '';
+        
+        if (isVideoMedia) {
+            mainMediaContainer.innerHTML = `<video src="${src}" id="mainMedia" class="main-video" controls autoplay loop></video>`;
+        } else {
+            mainMediaContainer.innerHTML = `<img src="${src}" id="mainMedia" class="main-image">`;
+        }
+
+        document.querySelectorAll('#productModal .gallery-item').forEach(item => item.classList.remove('active'));
+        const activeItem = document.querySelector(`#productModal .gallery-item [src='${src}']`);
+        if (activeItem) {
+            activeItem.closest('.gallery-item').classList.add('active');
+        }
+    }
+
+
+    // -------------------------------------------------------------------------
+    // 7. ACCORDEON & MUSIC JS (Өзгеріссіз қалды)
+    // -------------------------------------------------------------------------
+
+    const music = document.getElementById('backgroundMusic');
+    const cover = document.getElementById('recordCover');
+
+    function toggleMusic() {
+        if (music.paused) {
+            music.play().catch(error => {
+                console.error("Ошибка воспроизведения музыки:", error);
+            });
+            cover.classList.add('spinning');
+        } else {
+            music.pause();
+            cover.classList.remove('spinning');
+        }
+    }
+
+    function toggleContent(index) {
+        const el = document.getElementById('info' + index);
+        const item = document.getElementById('item' + index); 
+
+        for (let i = 0; i < 3; i++) {
+            const currentContent = document.getElementById('info' + i);
+            const currentItem = document.getElementById('item' + i);
+            
+            if (currentContent && currentItem) {
+                if (i !== index) {
+                    currentContent.classList.remove('open');
+                    currentItem.classList.remove('active');
+                }
+            }
+        }
+        
+        if (el && item) {
+            if (el.classList.contains('open')) {
+                el.classList.remove('open');
+                item.classList.remove('active');
+            } else {
+                el.classList.add('open');
+                el.classList.remove('active'); // Ойын кезінде бұл қажет емес
+                item.classList.add('active');
+            }
+        }
+    }
+
+    // HERO VIDEO СИСТЕМА (өзгеріссіз қалды)
+    const videoSources = [
+        "коныр сомке.mp4", 
+        "ак футболка.mp4",
+        "кара жакет.mp4",
+        "кара сомке.mp4",
+        "жасыл свитер.mp4",
+        "333.mp4"
+    ];
+
+    const videoContainer = document.getElementById('heroVideoContainer');
+    let currentVideoIndex = 0;
+
+    videoSources.forEach((src, index) => {
+        const video = document.createElement('video');
+        video.src = src;
+        video.loop = false;
+        video.muted = true;
+        video.playsInline = true;
+        video.preload = "auto";
+        video.style.opacity = index === 0 ? 1 : 0;
+        video.id = 'heroVideo' + index;
+        videoContainer.appendChild(video);
+
+        video.addEventListener('ended', playNextVideo);
+    });
+
+    function playNextVideo() {
+        const currentVideo = document.getElementById('heroVideo' + currentVideoIndex);
+        if (currentVideo) {
+            currentVideo.style.opacity = 0;
+            currentVideo.pause();
+            currentVideo.currentTime = 0;
+        }
+
+        currentVideoIndex = (currentVideoIndex + 1) % videoSources.length;
+
+        const nextVideo = document.getElementById('heroVideo' + currentVideoIndex);
+        if (nextVideo) {
+            nextVideo.style.opacity = 1;
+            nextVideo.play().catch(error => {
+                console.error("Ошибка воспроизведения следующего видео:", error);
+            });
+        }
+    }
+    
+    // -------------------------------------------------------------------------
+    // 8. EVENT LISTENERS
+    // -------------------------------------------------------------------------
+    document.querySelector(".close-modal").onclick = () => {
+        document.getElementById("productModal").style.display = "none";
+        const mainVideo = document.querySelector('#productModal .main-video');
+        if (mainVideo) mainVideo.pause();
+    };
+
+
+    window.onclick = (e) => {
+        if (e.target === document.getElementById("productModal")) {
+            document.getElementById("productModal").style.display = "none";
+            const mainVideo = document.querySelector('#productModal .main-video');
+            if (mainVideo) mainVideo.pause();
+        }
+    };
+
+    document.getElementById("searchInput").oninput = (e) =>
+        searchProducts(e.target.value);
+
+    document.getElementById("favoritesBtn").onclick = () => {
+        updateFavoritesDisplay();
+        document.getElementById("allProducts").classList.add("hidden");
+        document.getElementById("favoritesProducts").classList.remove("hidden");
+    };
+
+    document.getElementById("allBtn").onclick = () => {
+        document.getElementById("favoritesProducts").classList.add("hidden");
+        document.getElementById("allProducts").classList.remove("hidden");
+        document.getElementById("searchInput").value = "";
+        renderProducts(products, "allProducts");
+    };
+
+
+    // -------------------------------------------------------------------------
+    // БАСТАПҚЫ ЖҮКТЕУ
+    // -------------------------------------------------------------------------
+    document.addEventListener('DOMContentLoaded', () => {
+        // Тілді бастапқы жүктеу және мәтіндерді қолдану
+        applyTranslations();
+        
+        // Ойынды интернетсіз режимге қоюды тексеру
+        checkConnectionAndShowGame();
+
+        const firstVideo = document.getElementById('heroVideo0');
+        if (firstVideo) {
+            firstVideo.play().catch(error => {
+                console.warn("Автоматическое воспроизведение не удалось. Ожидается действие пользователя.");
+                document.body.addEventListener('click', () => {
+                    if (firstVideo.paused) {
+                        firstVideo.play();
+                    }
+                }, { once: true });
+            });
+        }
+    });
+
+</script>
+
+</body>
+</html>
